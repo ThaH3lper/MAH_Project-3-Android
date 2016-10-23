@@ -8,4 +8,11 @@ import se.mah.homebois.ethaplanner.views.MainActivity;
 
 public class MainController {
 
+    private final BolagetController bc;
+    private final WeatherController wc;
+
+    public MainController(WeatherController wc, BolagetController bc) {
+        this.bc = bc;
+        this.wc = wc;
+    }
 }
