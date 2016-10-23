@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tvDate;
     TextView tvLow;
-    TextView tvHeigh;
+    TextView tvHigh;
     TextView tvText;
 
     private BolagetController bc;
@@ -46,15 +46,36 @@ public class MainActivity extends AppCompatActivity {
 
         initControllers();
 
-        //tvDate = (TextView) tv;
+        tvDate = (TextView) findViewById(R.id.tvDate);
+        tvLow = (TextView) findViewById(R.id.tvLow);
+        tvHigh = (TextView) findViewById(R.id.tvHigh);
+        tvText = (TextView) findViewById(R.id.tvText);
+
+        mc.setWeather(0);
+    }
+
+    public void setTvDate(String date)
+    {
+        tvDate.setText(date);
+    }
+    public void setTvLow(String low)
+    {
+        tvLow.setText(low);
+    }
+    public void setTvHigh(String high)
+    {
+        tvHigh.setText(high);
+    }
+    public void setTvText(String text)
+    {
+        tvText.setText(text);
     }
 
     private void initControllers() {
         bc = new BolagetController(this);
 
         WeatherController wc = new WeatherController(this);
-        wc.updateWeather(0);
-        mc = new MainController(wc, bc);
+        mc = new MainController(wc, bc, this);
     }
 
     @Override

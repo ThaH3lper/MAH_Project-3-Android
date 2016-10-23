@@ -46,7 +46,7 @@ public class WeatherController implements GoogleApiClient.ConnectionCallbacks, G
         }
     }
 
-    public void updateWeather(int day)
+    public void updateWeather(int day, MainController.WeatherListener listener)
     {
         this.day = day;
         Location loc = getLocation();
@@ -57,7 +57,7 @@ public class WeatherController implements GoogleApiClient.ConnectionCallbacks, G
         else
         {
             Log.d("Location: ", loc.getLatitude() + " "  + loc.getLongitude());
-            getWeather(loc.getLatitude(), loc.getLongitude());
+            getWeather(loc.getLatitude(), loc.getLongitude(), listener);
         }
     }
 
@@ -82,9 +82,9 @@ public class WeatherController implements GoogleApiClient.ConnectionCallbacks, G
         return bestLocation;
     }
 
-    private void getWeather(double longitude, double latitude)
+    private void getWeather(double longitude, double latitude, MainController.WeatherListener listener)
     {
-        new WeatherFetcher(new WeatherListener(),
+        new WeatherFetcher(listener,
                 "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(SELECT%20woeid%20FROM%20geo.places%20WHERE%20text%3D%22("+ longitude + "%2C" + latitude + ")%22)%20and%20u%3D'c'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
                 "UTF-8");
     }
@@ -102,13 +102,6 @@ public class WeatherController implements GoogleApiClient.ConnectionCallbacks, G
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-    }
-
-    private class WeatherListener implements WeatherFetcher.ModelListener {
-        @Override
-        public void getWeather(WeatherModel model) {
-            Log.d("GOT: ", model.getQuery().getResults().getChannel().getItem().getForecast()[day].getText());
-    }
     }
 }
 
