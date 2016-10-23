@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.controllers.BolagetController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        BolagetController bolagetController = new BolagetController(this);
     }
 
     @Override

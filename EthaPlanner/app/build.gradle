@@ -27,5 +27,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.google.code.gson:gson:+'
+    compile 'org.jsoup:jsoup:+'
+    compile 'com.squareup.picasso:picasso:+'
+
     testCompile 'junit:junit:4.12'
 }

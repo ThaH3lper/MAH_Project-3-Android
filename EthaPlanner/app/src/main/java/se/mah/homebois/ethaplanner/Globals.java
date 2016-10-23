@@ -6,4 +6,10 @@ package se.mah.homebois.ethaplanner;
 
 public class Globals {
     public static final String APP_SETTINGS_NAME = "etha.pref";
+
+    public static final String BOLAGET_API_URL = "https://www.systembolaget.se/api/assortment/products/xml";
+
+    public static final String BOLAGET_IMAGE_URL = "https://www.systembolaget.se/dryck/%s/%s";
+
+    public static final long DAYS_IN_MS = 10000; // TODO
 }
