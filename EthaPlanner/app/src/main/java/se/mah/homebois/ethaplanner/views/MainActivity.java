@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.google.android.gms.location.LocationServices;
 
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.controllers.WeatherController;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        BolagetController bc = new BolagetController(this);
 
         WeatherController wc = new WeatherController(this);
         wc.updateWeather(0);
