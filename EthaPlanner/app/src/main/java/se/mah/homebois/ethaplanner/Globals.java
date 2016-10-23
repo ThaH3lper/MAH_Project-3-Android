@@ -12,4 +12,5 @@ public class Globals {
     public static final String BOLAGET_IMAGE_URL = "https://www.systembolaget.se/dryck/%s/%s";
 
     public static final long DAYS_IN_MS = 1000 * 60 * 60 * 24;
+    public static final long TEN_DAYS_MS = DAYS_IN_MS * 10;
 }

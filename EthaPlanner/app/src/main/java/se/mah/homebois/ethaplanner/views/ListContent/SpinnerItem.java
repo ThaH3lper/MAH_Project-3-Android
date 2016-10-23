@@ -5,18 +5,17 @@ package se.mah.homebois.ethaplanner.views.ListContent;
  */
 public class SpinnerItem {
     String label;
-    int icon;
+    int id;
 
-    public SpinnerItem(String label)
+    public SpinnerItem(int id, String label)
     {
         this.label = label;
-        this.icon = icon;
+        this.id = id;
 
     }
 
-    public String getLabel()
-    {
-        return label;
+    public int getId() {
+        return id;
     }
 
     @Override

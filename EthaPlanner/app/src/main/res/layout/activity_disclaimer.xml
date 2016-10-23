@@ -18,11 +18,26 @@
         android:gravity="center">
 
         <TextView
+            android:text="@string/disclaimer_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:gravity="center"
+            android:paddingBottom="20dp"/>
+
+        <TextView
             android:text="@string/disclaimer_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginBottom="40dp"/>
+         />
+
+        <TextView
+            android:text="@string/bolaget_license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -45,5 +60,6 @@
                 android:id="@+id/btnAccept"
                 android:layout_weight="1"/>
         </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
