@@ -1,4 +1,4 @@
-package se.mah.homebois.ethaplanner;
+package se.mah.homebois.ethaplanner.net;
 
 import android.os.AsyncTask;
 
@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
 
 /**

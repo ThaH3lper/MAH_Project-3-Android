@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import java.util.Calendar;
 import java.util.List;
 
-import se.mah.homebois.ethaplanner.DrinkTypeImageUrlMapper;
+import se.mah.homebois.ethaplanner.net.DrinkTypeImageUrlMapper;
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.db.BolagetDB;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;

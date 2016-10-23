@@ -14,6 +14,7 @@ import com.google.android.gms.location.LocationServices;
 
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.controllers.BolagetController;
+import se.mah.homebois.ethaplanner.controllers.MainController;
 import se.mah.homebois.ethaplanner.controllers.WeatherController;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvLow;
     TextView tvHeigh;
     TextView tvText;
+
+    private BolagetController bc;
+    private MainController mc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +44,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        BolagetController bc = new BolagetController(this);
+        initControllers();
+
+        //tvDate = (TextView) tv;
+    }
+
+    private void initControllers() {
+        bc = new BolagetController(this);
 
         WeatherController wc = new WeatherController(this);
         wc.updateWeather(0);
-
-        tvDate = (TextView) tv;
+        mc = new MainController(wc, bc);
     }
 
     @Override
