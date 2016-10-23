@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.gms.location.LocationServices;
 
@@ -16,6 +17,12 @@ import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.controllers.WeatherController;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    TextView tvDate;
+    TextView tvLow;
+    TextView tvHeigh;
+    TextView tvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,23 +44,20 @@ public class MainActivity extends AppCompatActivity {
 
         WeatherController wc = new WeatherController(this);
         wc.updateWeather(0);
+
+        tvDate = (TextView) tv;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

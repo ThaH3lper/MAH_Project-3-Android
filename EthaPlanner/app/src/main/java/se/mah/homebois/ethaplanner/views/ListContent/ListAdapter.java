@@ -8,11 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import se.mah.homebois.ethaplanner.R;
-import se.mah.homebois.ethaplanner.models.ListViewItems;
 
 public class ListAdapter extends ArrayAdapter<ListViewItems> {
     private LayoutInflater inflater;
