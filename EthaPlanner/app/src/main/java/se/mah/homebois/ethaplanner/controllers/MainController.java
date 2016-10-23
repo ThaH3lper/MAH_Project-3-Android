@@ -1,9 +1,11 @@
 package se.mah.homebois.ethaplanner.controllers;
 
+import android.icu.util.Calendar;
 import android.util.Log;
 import android.widget.TextView;
 
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.models.Weather.Forecast;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
 import se.mah.homebois.ethaplanner.views.MainActivity;
@@ -26,6 +28,14 @@ public class MainController {
         this.wc = wc;
     }
 
+    public void setDefaultWeather()
+    {
+        activity.setTvDate("01 jan 1999");
+        activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), "0"));
+        activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), "0"));
+        activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), ""));
+    }
+
     public void setWeather(int day)
     {
         this.day = day;
@@ -37,16 +47,15 @@ public class MainController {
         public void getWeather(WeatherModel model) {
             Log.d("GOT: ", model.getQuery().getResults().getChannel().getItem().getForecast()[day].getText());
 
-            activity.setTvDate(model.getQuery().getResults().getChannel().getItem().getForecast()[day].getDate());
+            Forecast cast = model.getQuery().getResults().getChannel().getItem().getForecast()[day];
 
-            activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high),
-                    model.getQuery().getResults().getChannel().getItem().getForecast()[day].getHigh()));
+            activity.setTvDate(cast.getDate());
 
-            activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low),
-                    model.getQuery().getResults().getChannel().getItem().getForecast()[day].getLow()));
+            activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), cast.getHigh()));
 
-            activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type),
-                    model.getQuery().getResults().getChannel().getItem().getForecast()[day].getText()));
+            activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), cast.getLow()));
+
+            activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), cast.getText()));
 
         }
     }
