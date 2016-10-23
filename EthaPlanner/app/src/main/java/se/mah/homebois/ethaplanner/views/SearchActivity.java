@@ -2,8 +2,12 @@ package se.mah.homebois.ethaplanner.views;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +17,7 @@ import android.widget.Spinner;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerCategories;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
@@ -31,6 +36,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         initSpinner();
         initSearchDate();
@@ -72,6 +80,15 @@ public class SearchActivity extends AppCompatActivity {
         sortSpinner.setAdapter(spinnerAdapter);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = getSharedPreferences(Globals.APP_SETTINGS_NAME, MODE_PRIVATE);
+        if (!preferences.getBoolean("userAccepted", false)) {
+            Intent disclaimer = new Intent(this, DisclaimerActivity.class);
+            startActivity(disclaimer);
+        }
+    }
 
     public void showDateDialog(View v) {
         final View clicked = v;
@@ -110,4 +127,20 @@ public class SearchActivity extends AppCompatActivity {
         setWeatherButton.setText(new SimpleDateFormat("dd/MM/yyyy").format(selectedDay.getTime()));
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

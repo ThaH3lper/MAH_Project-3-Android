@@ -54,4 +54,8 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
     public void onImageUrlReady(String url) {
         url.toString();
     }
+
+    public void dispose() {
+        bolagetDB.close();
+    }
 }
