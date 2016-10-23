@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.LocationServices;
 
@@ -86,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
+            String toastname = "EthaPlanner©, by Patrik Nilsson, Simon Bothen, Tim Lindstam";
+
+            Toast.makeText(this, toastname, Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
