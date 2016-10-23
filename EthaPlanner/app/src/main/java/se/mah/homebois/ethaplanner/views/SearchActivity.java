@@ -1,12 +1,14 @@
 package se.mah.homebois.ethaplanner.views;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,6 +23,7 @@ public class SearchActivity extends AppCompatActivity {
     private int          time;
     private ArrayAdapter spinnerAdapter;
     private Button       setWeatherButton;
+    private Spinner      sortSpinner;
 
     private Calendar selectedDay;
 
@@ -29,11 +32,27 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        SpinnerItems();
-        RegisterListeners();
+        initSpinner();
+        initSearchDate();
+        initSearch();
     }
 
-    private void RegisterListeners() {
+    private void initSearch() {
+        Button btnSearch = (Button)findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchResultActivity();
+            }
+        });
+    }
+
+    private void launchResultActivity() {
+        Intent result = new Intent(this, MainActivity.class);
+        startActivity(result);
+    }
+
+    private void initSearchDate() {
         setWeatherButton = (Button) findViewById(R.id.setWeatherButton);
         setWeatherButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +65,11 @@ public class SearchActivity extends AppCompatActivity {
         updateSearchDate();
     }
 
-    private void SpinnerItems() {
+    private void initSpinner() {
+        sortSpinner = (Spinner)findViewById(R.id.spinnerAPK);
         spinnerAdapter = new ArrayAdapter<SpinnerItem>(this, android.R.layout.simple_spinner_item, SpinnerCategories.spinnerItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(spinnerAdapter);
     }
 
 
@@ -86,7 +107,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void updateSearchDate() {
-        setWeatherButton.setText(new SimpleDateFormat("dd/MM/yyyy").format(selectedDay));
+        setWeatherButton.setText(new SimpleDateFormat("dd/MM/yyyy").format(selectedDay.getTime()));
     }
 
 }
