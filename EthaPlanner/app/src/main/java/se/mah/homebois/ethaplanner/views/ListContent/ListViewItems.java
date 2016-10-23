@@ -14,13 +14,16 @@ public class ListViewItems {
 
 
 
-    public ListViewItems(String Title, String Alcohol, String Price, String APK)
+    public ListViewItems(String Title, String Alcohol, String Price, String pricePerLiter)
     {
         this.Title = Title;
         this.Alcohol = Alcohol;
         this.Price = Price;
-        this.APK = APK;
 
+        //matemagi
+        //double apk = Double.parseDouble(Alcohol) / Double.parseDouble(pricePerLiter);
+
+        this.APK = "---";
     }
 
     public void setTitle(String Title)
