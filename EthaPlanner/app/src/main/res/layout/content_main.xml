@@ -20,14 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/wallet_highlighted_text_holo_light"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:padding="10px">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvDate"
             android:layout_weight="1"
-            android:text="sad" />
+            android:text="sad"
+            android:textStyle="normal|bold"
+            android:textSize="20sp" />
 
         <TextView
             android:text="TextView"
@@ -48,7 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvText"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
     <ListView
