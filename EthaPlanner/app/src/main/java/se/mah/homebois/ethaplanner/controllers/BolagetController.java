@@ -34,13 +34,11 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
         }
 
 
-       // BolagetArticle ar = bolagetDB.get(BolagetArticle.class, 23);
-       // String s = ar.Alkoholhalt;
         List<BolagetArticle> s;
-        s = bolagetDB.findByType("sprit");
+        s = bolagetDB.findByType(new String[]{"vin", "sprit"});
         s.size();
-
-        new DrinkTypeImageUrlMapper(this).execute(s.get(3));
+        if (s.size() > 10)
+            new DrinkTypeImageUrlMapper(this).execute(s.get(3));
     }
 
     private void updateDatabase() {

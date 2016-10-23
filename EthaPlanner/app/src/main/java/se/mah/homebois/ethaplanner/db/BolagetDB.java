@@ -24,8 +24,14 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
         createTable(BolagetArticle.class, db);
     }
 
-    public List<BolagetArticle> findByType(String type) {
-        return get(BolagetArticle.class, String.format("Varugrupp LIKE '%%%s%%'", type));
+    public List<BolagetArticle> findByType(String[] types) {
+        String query = String.format("Varugrupp LIKE '%%%s%%'", types[0]);
+
+        for (int i = 1; i < types.length; ++i) {
+            query += String.format(" AND Varugrupp LIKE '%%%s%%'", types[i]);
+        }
+
+        return get(BolagetArticle.class, query);
     }
 
     @Override
