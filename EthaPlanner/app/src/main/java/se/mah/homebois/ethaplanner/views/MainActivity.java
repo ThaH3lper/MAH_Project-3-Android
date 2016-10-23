@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         tvHigh = (TextView) findViewById(R.id.tvHigh);
         tvText = (TextView) findViewById(R.id.tvText);
 
+        mc.setDefaultWeather();
         mc.setWeather(0);
     }
 
