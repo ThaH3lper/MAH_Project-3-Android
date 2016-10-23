@@ -5,4 +5,5 @@ package se.mah.homebois.ethaplanner.net;
  */
 
 public class BolagetImageDownloader {
+
 }
