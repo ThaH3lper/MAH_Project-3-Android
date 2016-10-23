@@ -12,6 +12,9 @@
     <string name="weather_low">Min temperature: %s°C</string>
 
     <string name="weather_type">Weather: %s!</string>
+    <string name="under_20">I\'m under 20</string>
+    <string name="over_20">I\'m over 20</string>
+    <string name="disclaimer_text">Denna webbsida innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
 
 
 </resources>
