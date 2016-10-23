@@ -3,6 +3,7 @@ package se.mah.homebois.ethaplanner.views;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,11 +15,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
+import com.google.gson.Gson;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.models.SearchModel;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerCategories;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 
@@ -26,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private String       timeAsText;
     private int          time;
-    private ArrayAdapter spinnerAdapter;
+    private ArrayAdapter<SpinnerItem> spinnerAdapter;
     private Button       setWeatherButton;
     private Spinner      sortSpinner;
 
@@ -56,7 +60,15 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void launchResultActivity() {
+        long now = Calendar.getInstance().getTimeInMillis();
+
+        if (selectedDay.getTimeInMillis() - now > Globals.TEN_DAYS_MS || selectedDay.getTimeInMillis() - now < -Globals.DAYS_IN_MS) {
+            Snackbar.make(sortSpinner, "Choose a date within 10 days from now", Snackbar.LENGTH_LONG).show();
+            return;
+        }
+
         Intent result = new Intent(this, MainActivity.class);
+        result.putExtra("model", new Gson().toJson(new SearchModel(selectedDay.getTimeInMillis(), spinnerAdapter.getItem( sortSpinner.getSelectedItemPosition()))));
         startActivity(result);
     }
 
@@ -101,17 +113,6 @@ public class SearchActivity extends AppCompatActivity {
         DatePickerDialog mDatePicker = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-              /*  month++;
-                String m = month+ "";
-                if(month < 10){ m = "0" + m;}
-
-                String d = day + "";
-                if (day < 10){d = "0" + d;}
-
-                timeAsText = year + "-" + m + "-" + d;
-                //((Button) clicked).setText(timeAsText);
-                time = Integer.parseInt(year + m + d);*/
-
                 selectedDay.set(year, month, day, 0, 0);
                 updateSearchDate();
 

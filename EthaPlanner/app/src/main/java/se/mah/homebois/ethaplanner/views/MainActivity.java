@@ -14,11 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.LocationServices;
+import com.google.gson.Gson;
 
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.controllers.MainController;
 import se.mah.homebois.ethaplanner.controllers.WeatherController;
+import se.mah.homebois.ethaplanner.models.SearchModel;
+import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
         mc.setDefaultWeather();
         mc.setWeather(0);
+
+        if ( getIntent().getExtras() != null) {
+            SearchModel searchModel = new Gson().fromJson( getIntent().getExtras().getString("model"), SearchModel.class);
+            SpinnerItem a = searchModel.sortBy;
+        }
     }
 
     public void setTvDate(String date)

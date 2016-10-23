@@ -5,7 +5,7 @@
     //Search Strings
     <string name="Search">Search</string>
     <string name="Please_set_a_date">Please set a date</string>
-    <string name="Please_set_target_APK">Target APK</string>
+    <string name="Please_set_target_APK">Sort by</string>
 
     //
     <string name="weather_high">Max temperature: %s°C</string>
@@ -15,6 +15,9 @@
     <string name="under_20">I\'m under 20</string>
     <string name="over_20">I\'m over 20</string>
     <string name="disclaimer_text">Denna webbsida innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
+    <string name="bolaget_license">(All images and products are owned by Systembolaget AB)</string>
+    <string name="disclaimer_header">Disclaimer!</string>
+    <string name="search">Search</string>
 
 
 </resources>

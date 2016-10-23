@@ -5,9 +5,9 @@ package se.mah.homebois.ethaplanner.views.ListContent;
  */
 public class SpinnerCategories {
     public static SpinnerItem[] spinnerItems = new SpinnerItem[]{
-            new SpinnerItem("Hög alkohol per krona"),
-            new SpinnerItem("Låg alkohol per krona"),
-            new SpinnerItem("Alkoholfritt")
+            new SpinnerItem(0, "Hög alkohol per krona"),
+            new SpinnerItem(1, "Låg alkohol per krona"),
+            new SpinnerItem(2, "Alkoholfritt")
     };
 }
 
