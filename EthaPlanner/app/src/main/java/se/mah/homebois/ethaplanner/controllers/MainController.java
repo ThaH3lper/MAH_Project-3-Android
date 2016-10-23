@@ -8,6 +8,7 @@ import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.models.Weather.Forecast;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
+import se.mah.homebois.ethaplanner.views.ListContent.ListAdapter;
 import se.mah.homebois.ethaplanner.views.MainActivity;
 
 /**
@@ -28,6 +29,11 @@ public class MainController {
         this.wc = wc;
     }
 
+    public void loadResults()
+    {
+        //activity.getListResult().setAdapter(new ListAdapter(activity, ));
+    }
+
     public void setDefaultWeather()
     {
         activity.setTvDate("01 jan 1999");
@@ -45,18 +51,12 @@ public class MainController {
     public class WeatherListener implements WeatherFetcher.ModelListener {
         @Override
         public void getWeather(WeatherModel model) {
-            Log.d("GOT: ", model.getQuery().getResults().getChannel().getItem().getForecast()[day].getText());
 
             Forecast cast = model.getQuery().getResults().getChannel().getItem().getForecast()[day];
-
             activity.setTvDate(cast.getDate());
-
             activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), cast.getHigh()));
-
             activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), cast.getLow()));
-
             activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), cast.getText()));
-
         }
     }
 }
