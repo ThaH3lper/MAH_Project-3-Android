@@ -13,7 +13,7 @@ import se.mah.homebois.ethaplanner.Globals;
 public class BolagetController {
 
     public BolagetController(Activity activity) {
-        //SharedPreferences prefs = activity.getSharedPreferences(Globals.APP_SETTINGS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences prefs = activity.getSharedPreferences(Globals.APP_SETTINGS_NAME, Context.MODE_PRIVATE);
         //prefs.getLong("lastBolagetUpdate");
     }
 
