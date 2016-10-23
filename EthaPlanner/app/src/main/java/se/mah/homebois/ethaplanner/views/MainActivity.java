@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.gms.location.LocationServices;
 
@@ -18,6 +19,12 @@ import se.mah.homebois.ethaplanner.controllers.MainController;
 import se.mah.homebois.ethaplanner.controllers.WeatherController;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    TextView tvDate;
+    TextView tvLow;
+    TextView tvHigh;
+    TextView tvText;
 
     private BolagetController bc;
     private MainController mc;
@@ -30,15 +37,37 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         initControllers();
+
+        tvDate = (TextView) findViewById(R.id.tvDate);
+        tvLow = (TextView) findViewById(R.id.tvLow);
+        tvHigh = (TextView) findViewById(R.id.tvHigh);
+        tvText = (TextView) findViewById(R.id.tvText);
+
+        mc.setWeather(0);
+    }
+
+    public void setTvDate(String date)
+    {
+        tvDate.setText(date);
+    }
+    public void setTvLow(String low)
+    {
+        tvLow.setText(low);
+    }
+    public void setTvHigh(String high)
+    {
+        tvHigh.setText(high);
+    }
+    public void setTvText(String text)
+    {
+        tvText.setText(text);
     }
 
     private void initControllers() {
         bc = new BolagetController(this);
 
         WeatherController wc = new WeatherController(this);
-        wc.updateWeather(0);
-
-        mc = new MainController(wc, bc);
+        mc = new MainController(wc, bc, this);
     }
 
     private void launchSearchActivity() {
@@ -48,19 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

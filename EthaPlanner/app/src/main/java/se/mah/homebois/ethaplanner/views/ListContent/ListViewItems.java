@@ -1,4 +1,4 @@
-package se.mah.homebois.ethaplanner.models;
+package se.mah.homebois.ethaplanner.views.ListContent;
 
 /**
  * Created by Tim on 2016-10-23.
