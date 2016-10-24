@@ -94,7 +94,7 @@ public class MainController {
     private void showItemsInList(List<BolagetArticle> list)
     {
         for (BolagetArticle ba: list) {
-            Log.d("Item: ", ba.Namn + " | " + ba.Apk);
+            Log.d("Item: ", ba.Namn + " | " + ba.Apk + " " + ba.Alkoholhalt);
         }
     }
 }
