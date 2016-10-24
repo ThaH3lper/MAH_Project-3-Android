@@ -19,5 +19,7 @@
     <string name="disclaimer_header">Disclaimer!</string>
     <string name="search">Search</string>
 
+    <string name="location_error">Location is not on!</string>
+
 
 </resources>
