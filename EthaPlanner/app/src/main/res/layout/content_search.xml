@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:background="@android:color/transparent"
-                    android:text="Calender"/>
+                    android:text="@string/Calender"/>
 
             </LinearLayout>
 

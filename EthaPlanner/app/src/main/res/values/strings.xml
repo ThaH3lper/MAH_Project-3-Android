@@ -26,6 +26,7 @@
     <string name="alcohol_free">Alcohol-Free</string>
     <string name="no_sort_by_apk">Don\'t sort</string>
 
-    <string name="location_error">Location is not on!</string>
-
+    <!--Location strings-->
+    <string name="location_error">Location-services is not activated!</string>
+    <string name="Calender">Calender</string>
 </resources>
