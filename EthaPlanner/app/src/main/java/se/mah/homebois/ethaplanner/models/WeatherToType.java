@@ -1,5 +1,6 @@
 package se.mah.homebois.ethaplanner.models;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,8 +11,9 @@ public class WeatherToType {
 
     private static Map<Integer, String[]> list;
 
-    public static void init()
-    {
+    //public static void init()
+    static {
+        list = new HashMap<>();
         list.put(0, new String[]{"Aniskryddad sprit", "Tequila och Mezcal"});
         list.put(1, new String[]{"Aniskryddad sprit", "Tequila och Mezcal"});
         list.put(2, new String[]{"Aniskryddad sprit", "Tequila och Mezcal"});
@@ -63,8 +65,7 @@ public class WeatherToType {
         list.put(3200, new String[]{"Öl"});
     }
 
-    public static String[] getTypes(int code)
-    {
+    public static String[] getTypes(int code) {
         return list.get(code);
     }
 }
