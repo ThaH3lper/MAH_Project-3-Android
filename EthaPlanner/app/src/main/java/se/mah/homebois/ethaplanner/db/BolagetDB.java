@@ -1,6 +1,7 @@
 package se.mah.homebois.ethaplanner.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -25,6 +26,7 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
         createTable(BolagetArticle.class, db);
     }
 
+/*
     public List<BolagetArticle> findByType(String[] types) {
         String query = String.format("Varugrupp LIKE '%%%s%%'", types[0]);
 
@@ -34,9 +36,23 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
 
         return get(BolagetArticle.class, query);
     }
+*/
 
-    public List<BolagetArticle> findByType(String type, int count, boolean randomized, SpinnerItem sort) {
-        return null;
+    public List<BolagetArticle> findByType(String type, int count, SpinnerItem sort) {
+        String where = String.format("Varugrupp LIKE '%%%s%%'", type);
+
+        String sortQuery = "RANDOM()";
+        switch (sort.getId()) {
+            case 1:
+                sortQuery = "Apk DESC";
+                break;
+            case 2:
+                sortQuery = "Apk";
+                break;
+        }
+
+        Cursor cursor = db.query(BolagetArticle.class.getSimpleName(), null, where, null, null, null, sortQuery, String.valueOf(count));
+        return get(BolagetArticle.class, cursor);
     }
 
     @Override

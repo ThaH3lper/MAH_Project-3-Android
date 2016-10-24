@@ -115,10 +115,7 @@ public abstract class SQLRepository<T> extends SQLiteOpenHelper implements IRepo
         return null;
     }
 
-    @Override
-    public <A extends T> List<A> get(Class<A> model, String where) {
-        Cursor cursor = db.query(model.getSimpleName(), null, where, null, null, null, null);
-
+    public <A extends T> List<A> get(Class<A> model, Cursor cursor) {
         List<A> list = new ArrayList<>();
 
         while (cursor.moveToNext()) {
@@ -150,5 +147,11 @@ public abstract class SQLRepository<T> extends SQLiteOpenHelper implements IRepo
 
         cursor.close();
         return list;
+    }
+
+    @Override
+    public <A extends T> List<A> get(Class<A> model, String where) {
+        Cursor cursor = db.query(model.getSimpleName(), null, where, null, null, null, null);
+        return get(model, cursor);
     }
 }
