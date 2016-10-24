@@ -18,10 +18,9 @@ import se.mah.homebois.ethaplanner.views.ListContent.SortItem;
  * Created by Simon on 10/23/2016.
  */
 
-public class BolagetController implements BolagetDataDownloader.IBolagetDownloadListener, DrinkTypeImageUrlMapper.IImageUrlListener{
+public class BolagetController implements BolagetDataDownloader.IBolagetDownloadListener {
 
-    private BolagetDB bolagetDB;
-
+    private final BolagetDB bolagetDB;
     private boolean isDownloading = false;
 
     public BolagetController(Activity activity) {
@@ -31,27 +30,20 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
         long lastUpdate = prefs.getLong("lastBolagetUpdate", 0);
         long now = Calendar.getInstance().getTimeInMillis();
 
-        if ( lastUpdate == 0) {
+        if (lastUpdate == 0) {
             isDownloading = true;
         }
 
-        if (now - lastUpdate > Globals.DAYS_IN_MS) {
+        // Update each week
+        if (now - lastUpdate > Globals.DAYS_IN_MS * 7) {
             updateDatabase();
             prefs.edit().putLong("lastBolagetUpdate", now).apply();
         }
-
-        // TODO remove
-       /* List<BolagetArticle> s;
-        s = bolagetDB.findByType(new String[]{"vin", "sprit"});
-        s.size();
-        if (s.size() > 10)
-            new DrinkTypeImageUrlMapper(this).execute(s.get(3));*/
     }
 
     private void updateDatabase() {
         new BolagetDataDownloader(bolagetDB, this).execute(Globals.BOLAGET_API_URL);
     }
-
 
     public List<BolagetArticle> findByType(String type, int count, SortItem sort) {
         return bolagetDB.findByType(type, count, sort);
@@ -59,17 +51,11 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
 
     @Override
     public void onComplete(List<BolagetArticle> articles) {
-        //bolagetDB.clearAndUpdate(articles);
         isDownloading = false;
     }
 
     public boolean isDownloading() {
         return isDownloading;
-    }
-
-    @Override
-    public void onImageUrlReady(String url) {
-        url.toString();
     }
 
     public void dispose() {
