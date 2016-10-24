@@ -16,7 +16,6 @@ public class BolagetImageDownloader implements DrinkTypeImageUrlMapper.IImageUrl
 
     public BolagetImageDownloader(ImageView imageView, BolagetArticle article ) {
         this.imageView = imageView;
-
         new DrinkTypeImageUrlMapper(this).execute(article);
     }
 

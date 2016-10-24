@@ -31,6 +31,10 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
         long lastUpdate = prefs.getLong("lastBolagetUpdate", 0);
         long now = Calendar.getInstance().getTimeInMillis();
 
+        if ( lastUpdate == 0) {
+            isDownloading = true;
+        }
+
         if (now - lastUpdate > Globals.DAYS_IN_MS) {
             updateDatabase();
             prefs.edit().putLong("lastBolagetUpdate", now).apply();
@@ -46,7 +50,6 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
 
     private void updateDatabase() {
         new BolagetDataDownloader(bolagetDB, this).execute(Globals.BOLAGET_API_URL);
-        isDownloading = true;
     }
 
 

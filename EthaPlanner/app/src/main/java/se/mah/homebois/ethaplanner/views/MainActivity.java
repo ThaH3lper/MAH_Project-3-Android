@@ -95,26 +95,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(search);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            String toastname = "EthaPlanner©, by Patrik Nilsson, Simon Bothen, Tim Lindstam";
-
-            Toast.makeText(this, toastname, Toast.LENGTH_LONG).show();
-        }
-
-        return super.onOptionsItemSelected(item);
-
-    }
-
     protected void onDestroy() {
         bc.dispose();
         super.onDestroy();

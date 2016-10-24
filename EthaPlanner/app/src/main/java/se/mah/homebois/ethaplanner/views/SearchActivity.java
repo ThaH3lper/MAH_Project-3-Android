@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -177,9 +178,11 @@ public class SearchActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
+            String toastname = "EthaPlanner©, by Patrik Nilsson, Simon Bothen, Tim Lindstam";
+            Toast.makeText(this, toastname, Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 }
