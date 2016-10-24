@@ -9,8 +9,8 @@
 
     <!--Weather Strings-->
     <string name="weather_type">Väder: %s!</string>
-    <string name="weather_high">Högsta temperatur: %s°C</string>
-    <string name="weather_low">Minsta temperatur: %s°C</string>
+    <string name="weather_high">max</string>
+    <string name="weather_low">min</string>
 
     <!--Systembolaget strings-->
     <string name="under_20">Jag är under 20 år!</string>

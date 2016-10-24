@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20px">
+    android:padding="20px"
+    android:background="@android:color/white">
 
 
     <LinearLayout
@@ -10,7 +11,8 @@
         android:layout_width="0px"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@android:color/white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,22 +25,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="12%"
-            android:id="@+id/twAlcohol" />
+            android:text="group"
+            android:id="@+id/twGroup" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="169:-"
-            android:id="@+id/twPrice" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="99kr"
-            android:id="@+id/twAPK" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="2.45"
+                android:id="@+id/twAPK"
+                android:layout_weight="1"
+                android:layout_width="0dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="12%"
+                android:id="@+id/twAlcohol"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="70cl"
+                android:id="@+id/twAmount"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="169:-"
+                android:id="@+id/twPrice"
+                android:layout_weight="1" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -47,7 +81,7 @@
         android:id="@+id/ivDrink"
         android:src="@drawable/examplelistitem"
         android:layout_weight="0.7"
-        android:layout_height="144dp"/>
+        android:layout_height="120dp" />
 
 
 </LinearLayout>

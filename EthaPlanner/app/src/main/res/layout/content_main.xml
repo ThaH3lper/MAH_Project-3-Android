@@ -16,45 +16,167 @@
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/wallet_highlighted_text_holo_light"
-        android:gravity="center_horizontal"
+        android:background="@drawable/box"
         android:padding="10px"
         android:id="@+id/layoutWeather"
         android:visibility="invisible">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvDate"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="sad"
-            android:textStyle="normal|bold"
-            android:textSize="20sp" />
+            android:paddingRight="15dp">
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvHigh"
-            android:layout_weight="1" />
+            <TextView
+                android:text="Location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvLocation"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white" />
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvLow"
-            android:layout_weight="1" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDate"
+                android:layout_weight="1"
+                android:text="sad"
+                android:textStyle="normal|bold|italic"
+                android:textSize="10sp"
+                android:textColor="@android:color/white" />
 
-        <TextView
-            android:text="TextView"
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvText"
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvRec"
+                android:layout_weight="1"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvText"
-            android:layout_weight="1"
-            android:textStyle="normal|bold" />
+            android:layout_height="match_parent"
+            android:background="@drawable/back"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:padding="10dp">
+
+            <TextView
+                android:text="@string/weather_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTemp"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:text="@string/weather_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvMin"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textStyle="normal|italic" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvMinValue"
+                            android:textSize="22sp"
+                            android:textColor="@android:color/holo_red_light"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:text="@string/weather_celsius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvCelsiusMin"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/holo_red_light"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:text="@string/weather_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvMax"
+                        android:textColor="@android:color/holo_green_dark"
+                        android:textStyle="normal|italic" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvMaxValue"
+                            android:textColor="@android:color/holo_green_dark"
+                            android:textSize="22sp"
+                            android:textStyle="normal|bold"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvCelciusmax"
+                            android:textColor="@android:color/holo_green_dark"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:layout_weight="1"
+                            android:text="@string/weather_celsius" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
     <ListView

@@ -13,6 +13,7 @@ import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.models.SearchModel;
 import se.mah.homebois.ethaplanner.models.Weather.Forecast;
+import se.mah.homebois.ethaplanner.models.Weather.Location;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.models.WeatherToType;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
@@ -49,24 +50,21 @@ public class MainController {
         updateWeather(day);
     }
 
-    public void setDefaultWeather() {
-        //activity.setTvDate("01 jan 1999");
-        //activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), "0"));
-        //activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), ""));
-    }
-
     public void updateWeather(int day) {
         this.day = day;
         this.wc.updateWeather(day, new WeatherListener());
     }
 
-    private class WeatherListener implements WeatherFetcher.ModelListener {
+    public class WeatherListener implements WeatherFetcher.ModelListener {
         @Override
         public void getWeather(WeatherModel model) {
             Forecast cast = model.getQuery().getResults().getChannel().getItem().getForecast()[day];
+            Location loc = model.getQuery().getResults().getChannel().getLocation();
+
+            activity.setTvLocation(loc.getCountry() + "-" + loc.getRegion().replace(" ", "") + "-" + loc.getCity());
             activity.setTvDate(cast.getDate());
-            activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), cast.getHigh()));
-            activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), cast.getLow()));
+            activity.setTvMaxValue(cast.getHigh());
+            activity.setTvMinValue(cast.getLow());
             activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), cast.getText()));
 
             String[] types = new String[]{"Alkoholfritt"};
@@ -78,21 +76,28 @@ public class MainController {
             int over = amountEach * types.length;
 
             List<ListViewItems> listItem = new ArrayList<ListViewItems>();
-            int i = 0;
+            String typesStr = "";
 
+            int i = 0;
             for (String type : types) {
+
+                if(i == 0)
+                    typesStr += " " + type;
+                else
+                    typesStr += ", " + type;
+
                 int add = 0;
                 if (over > 0) {
                     over--;
                     add = 1;
                 }
-                List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
+                i++;
 
-                for (BolagetArticle ba : list) {
+                List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
+                for (BolagetArticle ba : list)
                     listItem.add(new ListViewItems(ba.nr, ba.Varugrupp, String.format("%.02f", ba.Apk) + "ml/sek", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms + ":-"));
-                    i++;
-                }
             }
+            activity.setTvRecommend(activity.getResources().getString(R.string.weather_recommend) + typesStr);
 
             activity.getListResult().setAdapter(new DrinkResultListAdapter(activity, listItem));
 

@@ -18,11 +18,12 @@ import se.mah.homebois.ethaplanner.models.SearchModel;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    TextView tvLocation;
     TextView tvDate;
-    TextView tvLow;
-    TextView tvHigh;
+    TextView tvLowValue;
+    TextView tvHighValue;
     TextView tvText;
+    TextView tvRecommend;
 
     LinearLayout weatherLayout;
 
@@ -40,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
         initControllers();
 
+        tvRecommend = (TextView) findViewById(R.id.tvRec);
+        tvLocation = (TextView) findViewById(R.id.tvLocation);
         tvDate = (TextView) findViewById(R.id.tvDate);
-        tvLow = (TextView) findViewById(R.id.tvLow);
-        tvHigh = (TextView) findViewById(R.id.tvHigh);
+        tvLowValue = (TextView) findViewById(R.id.tvMinValue);
+        tvHighValue = (TextView) findViewById(R.id.tvMaxValue);
         tvText = (TextView) findViewById(R.id.tvText);
         listResult = (ListView) findViewById(R.id.listResult);
         weatherLayout = (LinearLayout) findViewById(R.id.layoutWeather);
-
-        mc.setDefaultWeather();
 
         if ( getIntent().getExtras() != null) {
             SearchModel searchModel = new Gson().fromJson( getIntent().getExtras().getString("model"), SearchModel.class);
@@ -55,17 +56,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setTvRecommend(String recommend)
+    {
+        tvRecommend.setText(recommend);
+    }
+    public void setTvLocation(String loc)
+    {
+        tvLocation.setText(loc);
+    }
     public void setTvDate(String date)
     {
         tvDate.setText(date);
     }
-    public void setTvLow(String low)
+    public void setTvMinValue(String low)
     {
-        tvLow.setText(low);
+        tvLowValue.setText(low);
     }
-    public void setTvHigh(String high)
+    public void setTvMaxValue(String high)
     {
-        tvHigh.setText(high);
+        tvHighValue.setText(high);
     }
     public void setTvText(String text)
     {
@@ -82,11 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         WeatherController wc = new WeatherController(this);
         mc = new MainController(wc, bc, this);
-    }
-
-    private void launchSearchActivity() {
-        Intent search = new Intent(this, SearchActivity.class);
-        startActivity(search);
     }
 
     @Override

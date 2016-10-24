@@ -9,8 +9,11 @@
 
     <!--Weather Strings-->
     <string name="weather_type">Weather: %s!</string>
-    <string name="weather_high">Max temperature: %s°C</string>
-    <string name="weather_low">Min temperature: %s°C</string>
+    <string name="weather_high">max</string>
+    <string name="weather_low">min</string>
+    <string name="weather_celsius">°C</string>
+    <string name="weather_temperature">Temperature</string>
+    <string name="weather_recommend">We recommend:</string>
 
     <!--Systembolaget strings-->
     <string name="under_20">I\'m under 20</string>
@@ -32,4 +35,5 @@
     <!--Misc strings-->
     <string name="Calender">Calendar</string>
     <string name="select_date">Select date</string>
+
 </resources>
