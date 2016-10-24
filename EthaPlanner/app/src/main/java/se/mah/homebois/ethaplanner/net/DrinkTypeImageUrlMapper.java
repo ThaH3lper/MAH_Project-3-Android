@@ -35,6 +35,11 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<BolagetArticle, Void, Str
         String url = Globals.BOLAGET_IMAGE_URL;
 
         String type = "sprit";
+        if (article.Varugrupp.contains("vin")) {
+            type = "vin";
+        } else if (article.Varugrupp.contains("Öl")) {
+            type = "ol";
+        }
 
         String name = article.Namn
                 .replace(" ", "-")
