@@ -2,6 +2,9 @@ package se.mah.homebois.ethaplanner.controllers;
 
 import android.os.Debug;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -55,10 +58,9 @@ public class MainController {
 
     public void setDefaultWeather()
     {
-        activity.setTvDate("01 jan 1999");
-        activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), "0"));
-        activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), "0"));
-        activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), ""));
+        //activity.setTvDate("01 jan 1999");
+        //activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), "0"));
+        //activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), ""));
     }
 
     public void setWeather(int day)
@@ -100,8 +102,17 @@ public class MainController {
                     listItem.add(new ListViewItems("", "", ba.Apk + "", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms));
                     i++;
                 }
-                activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
             }
+
+            activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
+
+            LinearLayout dialog = activity.getWeatherLayout();
+            dialog.setVisibility(LinearLayout.VISIBLE);
+            Animation animation = AnimationUtils.loadAnimation(activity, R.anim.weatheranimation);
+            animation.setDuration(1000);
+            dialog.setAnimation(animation);
+            dialog.animate();
+            animation.start();
         }
     }
 }
