@@ -2,27 +2,29 @@
     <string name="app_name">Etha Planner</string>
     <string name="action_settings">About</string>
 
-    //Search Strings
+   <!--Strings for Search-->
     <string name="Search">Search</string>
     <string name="Please_set_a_date">Please set a date</string>
     <string name="Please_set_target_APK">Sort by</string>
 
-    //
+    <!--Weather Strings-->
+    <string name="weather_type">Weather: %s!</string>
     <string name="weather_high">Max temperature: %s°C</string>
     <string name="weather_low">Min temperature: %s°C</string>
 
-    <string name="weather_type">Weather: %s!</string>
+    <!--Systembolaget strings-->
     <string name="under_20">I\'m under 20</string>
     <string name="over_20">I\'m over 20</string>
-    <string name="disclaimer_text">Denna webbsida innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
+    <string name="disclaimer_text">This application contains information about alcoholic beverages.</string>
     <string name="bolaget_license">(All images and products are owned by Systembolaget AB)</string>
     <string name="disclaimer_header">Disclaimer!</string>
     <string name="search">Search</string>
 
-    <string name="high_alc_per_crown">Hög alkohol per krona</string>
-    <string name="low_alc_per_crown">Låg alkohol per krona</string>
-    <string name="alcohol_free">Alkoholfri</string>
-    <string name="no_sort_by_apk">Ingen sortering</string>
+    <!--Categories in Spinner-->
+    <string name="high_alc_per_crown">High amount of alcohol per SEK</string>
+    <string name="low_alc_per_crown">Low amount of alcohol per SEK</string>
+    <string name="alcohol_free">Alcohol-Free</string>
+    <string name="no_sort_by_apk">Don't sort</string>
 
 
 </resources>

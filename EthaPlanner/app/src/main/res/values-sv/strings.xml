@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="action_settings">Om</string>
+
+    !--Strings for Search-->
+    <string name="Search">Sök</string>
+    <string name="Please_set_a_date">Välj datum</string>
+    <string name="Please_set_target_APK">Sortera</string>
+
+    <!--Weather Strings-->
+    <string name="weather_type">Väder: %s!</string>
+    <string name="weather_high">Högsta temperatur: %s°C</string>
+    <string name="weather_low">Minsta temperatur: %s°C</string>
+
+    <!--Systembolaget strings-->
+    <string name="under_20">Jag är under 20!</string>
+    <string name="over_20">Jag är 20 eller äldre!</string>
+    <string name="disclaimer_text">Denna applkation innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
+    <string name="bolaget_license">(Alla bilder och information ägs Systembolaget AB)</string>
+    <string name="disclaimer_header">Varning!</string>
+    <string name="search">Sök</string>
+
+    <!--Categories in Spinner-->
+    <string name="high_alc_per_crown">Hög alkohol per krona</string>
+    <string name="low_alc_per_crown">Låg alkohol per krona</string>
+    <string name="alcohol_free">Alkoholfri</string>
+    <string name="no_sort_by_apk">Ingen sortering</string>
+
+
 </resources>
