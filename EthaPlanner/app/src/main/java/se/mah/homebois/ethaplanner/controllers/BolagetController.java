@@ -37,11 +37,11 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
         }
 
         // TODO remove
-        List<BolagetArticle> s;
+       /* List<BolagetArticle> s;
         s = bolagetDB.findByType(new String[]{"vin", "sprit"});
         s.size();
         if (s.size() > 10)
-            new DrinkTypeImageUrlMapper(this).execute(s.get(3));
+            new DrinkTypeImageUrlMapper(this).execute(s.get(3));*/
     }
 
     private void updateDatabase() {
@@ -51,8 +51,7 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
 
 
     public List<BolagetArticle> findByType(String type, int count, SpinnerItem sort) {
-        //return bolagetDB.findByType(type, count, sort);
-        return null;
+        return bolagetDB.findByType(type, count, sort);
     }
 
     @Override
