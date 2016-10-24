@@ -5,38 +5,19 @@ package se.mah.homebois.ethaplanner.views.ListContent;
  */
 public class ListViewItems {
 
-    public String Title;
-    public String Alcohol;
-    public String Price;
-    public String APK;
+    private String Title;
+    private String Alcohol;
+    private String Price;
+    private String APK;
+    private String Id;
+    private String Type;
 
-    //Väder vaiabler
-
-
-
-    public ListViewItems(String Title, String Alcohol, String Price, String apk)
+    public ListViewItems(String id, String type, String apk ,String Title, String Alcohol, String Price, String pricePerLiter)
     {
         this.Title = Title;
         this.Alcohol = Alcohol;
         this.Price = Price;
         this.APK = apk;
-    }
-
-    public void setTitle(String Title)
-    {
-        this.Title = Title;
-    }
-    public void setAlcohol(String Alcohol)
-    {
-        this.Alcohol = Alcohol;
-    }
-    public void setPrice(String Price)
-    {
-        this.Price = Price;
-    }
-    public void setAPK(String APK)
-    {
-        this.APK = APK;
     }
 
     public String getTitle()
@@ -54,5 +35,13 @@ public class ListViewItems {
     public String getAPK()
     {
         return APK;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public String getType() {
+        return Type;
     }
 }

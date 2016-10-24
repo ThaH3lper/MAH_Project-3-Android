@@ -11,12 +11,13 @@ import java.io.IOException;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
+import se.mah.homebois.ethaplanner.views.ListContent.ListViewItems;
 
 /**
  * Created by Simon on 10/23/2016.
  */
 
-public class DrinkTypeImageUrlMapper extends AsyncTask<BolagetArticle, Void, String> {
+public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, String> {
 
     private final IImageUrlListener listener;
 
@@ -29,19 +30,19 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<BolagetArticle, Void, Str
     }
 
     @Override
-    protected String doInBackground(BolagetArticle... params) {
-        BolagetArticle article = params[0];
+    protected String doInBackground(ListViewItems... params) {
+        ListViewItems article = params[0];
 
         String url = Globals.BOLAGET_IMAGE_URL;
 
         String type = "sprit";
-        if (article.Varugrupp.contains("vin")) {
+        if (article.getType().contains("vin")) {
             type = "vin";
-        } else if (article.Varugrupp.contains("Öl")) {
+        } else if (article.getType().contains("Öl")) {
             type = "ol";
         }
 
-        String name = article.Namn
+        String name = article.getTitle()
                 .replace(" ", "-")
                 .replace("å", "a")
                 .replace("ä", "a")
@@ -49,7 +50,7 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<BolagetArticle, Void, Str
                 .replace("Å", "A")
                 .replace("Ä", "A")
                 .replace("Ö", "O")
-                + "-" + article.nr;
+                + "-" + article.getId();
 
         url = String.format(url, type, name).trim();
 
