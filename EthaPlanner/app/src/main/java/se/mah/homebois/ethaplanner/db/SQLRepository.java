@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Simon on 9/8/2016.
  */
 public abstract class SQLRepository<T> extends SQLiteOpenHelper implements IRepository<T> {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     protected SQLiteDatabase db;
 

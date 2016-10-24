@@ -7,6 +7,7 @@ import android.util.Log;
 import java.util.List;
 
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
+import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 
 /**
  * Created by Simon on 10/23/2016.
@@ -32,6 +33,10 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
         }
 
         return get(BolagetArticle.class, query);
+    }
+
+    public List<BolagetArticle> findByType(String type, int count, boolean randomized, SpinnerItem sort) {
+        return null;
     }
 
     @Override

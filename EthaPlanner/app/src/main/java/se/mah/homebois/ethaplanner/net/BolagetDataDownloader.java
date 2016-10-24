@@ -81,6 +81,7 @@ public class BolagetDataDownloader extends AsyncTask<String, String, List<Bolage
                 }
             } else if (eventType == XmlPullParser.END_TAG) {
                 if ("artikel".equals(tag)) {
+                    article.calculateAPK();  // TODO bad code;
                     articles.add(article);
                     article = null;
                 }
