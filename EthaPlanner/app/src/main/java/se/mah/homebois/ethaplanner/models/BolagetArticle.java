@@ -9,7 +9,7 @@ public class BolagetArticle {
 
     public String nr;
 
-    public double Apk;
+    public float Apk;
 
     public String Producent;
 
@@ -72,6 +72,10 @@ public class BolagetArticle {
         double procent = Double.parseDouble(Alkoholhalt.replace("%", ""));
         double ml  = Double.parseDouble(Volymiml);
 
-        Apk = ((procent * 0.01) * ml) / price;
+        Apk = (float)(((procent * 0.01) * ml) / price);
+
+        if (Apk == 0.0f) {
+            "".equals(Pant);
+        }
     }
 }
