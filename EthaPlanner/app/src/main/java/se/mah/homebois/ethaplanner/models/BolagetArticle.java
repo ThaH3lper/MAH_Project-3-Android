@@ -67,4 +67,11 @@ public class BolagetArticle {
 
     public String EtisktEtikett;
 
+    public void calculateAPK() {
+        double price = Double.parseDouble(Prisinklmoms);
+        double procent = Double.parseDouble(Alkoholhalt.replace("%", ""));
+        double ml  = Double.parseDouble(Volymiml);
+
+        Apk = ((procent * 0.01) * ml) / price;
+    }
 }
