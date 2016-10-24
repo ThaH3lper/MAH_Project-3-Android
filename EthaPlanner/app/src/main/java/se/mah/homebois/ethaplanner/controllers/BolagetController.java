@@ -21,6 +21,8 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
 
     private BolagetDB bolagetDB;
 
+    private boolean isDownloading = false;
+
     public BolagetController(Activity activity) {
         bolagetDB = new BolagetDB(activity);
 
@@ -33,7 +35,7 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
             prefs.edit().putLong("lastBolagetUpdate", now).apply();
         }
 
-
+        // TODO remove
         List<BolagetArticle> s;
         s = bolagetDB.findByType(new String[]{"vin", "sprit"});
         s.size();
@@ -43,11 +45,17 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
 
     private void updateDatabase() {
         new BolagetDataDownloader(bolagetDB, this).execute(Globals.BOLAGET_API_URL);
+        isDownloading = true;
     }
 
     @Override
     public void onComplete(List<BolagetArticle> articles) {
         //bolagetDB.clearAndUpdate(articles);
+        isDownloading = false;
+    }
+
+    public boolean isDownloading() {
+        return isDownloading;
     }
 
     @Override

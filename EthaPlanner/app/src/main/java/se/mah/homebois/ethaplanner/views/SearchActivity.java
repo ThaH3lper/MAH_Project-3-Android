@@ -1,6 +1,7 @@
 package se.mah.homebois.ethaplanner.views;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.google.gson.Gson;
@@ -22,6 +24,7 @@ import java.util.Calendar;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.models.SearchModel;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerCategories;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
@@ -35,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
     private Spinner      sortSpinner;
 
     private Calendar selectedDay;
+    private BolagetController bc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class SearchActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.bc = new BolagetController(this);
 
         initSpinner();
         initSearchDate();
@@ -60,8 +66,39 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void launchResultActivity() {
-        long now = Calendar.getInstance().getTimeInMillis();
+        if (bc.isDownloading()) {
+            final ProgressDialog dialog = new ProgressDialog(this);
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setTitle("Loading Data");
+            dialog.setMessage("Downloading data please wait...");
+            dialog.show();
 
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+                        if (!bc.isDownloading()) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    dialog.dismiss();
+                                    launchResultActivity();
+                                }
+                            });
+                            break;
+                        }
+                        try {
+                            Thread.sleep(300);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+            return;
+        }
+        
+        long now = Calendar.getInstance().getTimeInMillis();
         if (selectedDay.getTimeInMillis() - now > Globals.TEN_DAYS_MS || selectedDay.getTimeInMillis() - now < -Globals.DAYS_IN_MS) {
             Snackbar.make(sortSpinner, "Choose a date within 10 days from now", Snackbar.LENGTH_LONG).show();
             return;

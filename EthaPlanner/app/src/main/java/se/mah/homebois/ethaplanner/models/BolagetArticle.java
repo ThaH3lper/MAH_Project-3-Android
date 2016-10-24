@@ -9,6 +9,8 @@ public class BolagetArticle {
 
     public String nr;
 
+    public double Apk;
+
     public String Producent;
 
     public String PrisPerLiter;
