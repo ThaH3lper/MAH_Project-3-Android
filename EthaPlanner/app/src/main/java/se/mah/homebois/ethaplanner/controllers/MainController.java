@@ -95,7 +95,6 @@ public class MainController {
 
                 for (BolagetArticle ba: list) {
                     Log.d("Item: ", ba.Namn + " | " + ba.Apk + " " + ba.Alkoholhalt);
-                    listItem.add(new ListViewItems(ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms, ba.Apk + ""));
                     i++;
                 }
                 activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
