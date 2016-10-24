@@ -68,8 +68,8 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
     }
 
     public void clearAndUpdate(List<BolagetArticle> articles) {
-        db.execSQL("DELETE FROM " + BolagetArticle.class.getSimpleName());
         db.beginTransaction();
+        db.execSQL("DELETE FROM " + BolagetArticle.class.getSimpleName());
         for (BolagetArticle article : articles) {
             put(article);
         }

@@ -10,17 +10,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.net.BolagetImageDownloader;
 
 public class ListAdapter extends ArrayAdapter<ListViewItems> {
     private LayoutInflater inflater;
-    ListViewItems[] Items;
 
 
-    public ListAdapter(Context context, ListViewItems[] Items) {
+    public ListAdapter(Context context, List<ListViewItems> Items) {
         super(context, R.layout.listrow, Items);
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.Items = Items;
     }
 
     @Override
@@ -45,11 +46,14 @@ public class ListAdapter extends ArrayAdapter<ListViewItems> {
 
         Image = (ImageView)convertView.findViewById(R.id.ivDrink);
 
-        Title.setText(this.getItem(position).getTitle());
-        Alcohol.setText(this.getItem(position).getAlcohol());
-        Price.setText(this.getItem(position).getPrice());
-        APK.setText(this.getItem(position).getAPK());
+        ListViewItems item = getItem(position);
 
+        Title.setText(item.getTitle());
+        Alcohol.setText(item.getAlcohol());
+        Price.setText(item.getPrice());
+        APK.setText(item.getAPK());
+
+        new BolagetImageDownloader(Image, item);
         //  FIXA BILD ------>  Image.setImageResource(this.getItem(position).getIncomeCategory().getIcon());
 
         return convertView;
