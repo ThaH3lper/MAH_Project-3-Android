@@ -15,7 +15,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <TextView
             android:text="@string/disclaimer_header"
@@ -23,21 +25,24 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:gravity="center"
-            android:paddingBottom="20dp"/>
+            android:paddingBottom="20dp"
+            android:textSize="40dp" />
 
         <TextView
             android:text="@string/disclaimer_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-         />
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
 
         <TextView
             android:text="@string/bolaget_license"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            />
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -53,12 +58,15 @@
                 android:id="@+id/btnDecline"
                 android:layout_weight="1"/>
 
+
+
             <Button
                 android:text="@string/over_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAccept"
                 android:layout_weight="1"/>
+
         </LinearLayout>
 
     </LinearLayout>

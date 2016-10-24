@@ -3,7 +3,7 @@ package se.mah.homebois.ethaplanner.views.ListContent;
 /**
  * Created by Tim on 2016-10-23.
  */
-public class ListViewItems {
+public class    ListViewItems {
 
     public String Title;
     public String Alcohol;
