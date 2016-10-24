@@ -12,6 +12,7 @@ import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.db.BolagetDB;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.net.BolagetDataDownloader;
+import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 
 /**
  * Created by Simon on 10/23/2016.
@@ -46,6 +47,12 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
     private void updateDatabase() {
         new BolagetDataDownloader(bolagetDB, this).execute(Globals.BOLAGET_API_URL);
         isDownloading = true;
+    }
+
+
+    public List<BolagetArticle> findByType(String type, int count, SpinnerItem sort) {
+        //return bolagetDB.findByType(type, count, sort);
+        return null;
     }
 
     @Override
