@@ -12,12 +12,14 @@ public class    ListViewItems {
     private String Id;
     private String Type;
 
-    public ListViewItems(String id, String type, String apk ,String Title, String Alcohol, String Price, String pricePerLiter)
+    public ListViewItems(String id, String type, String apk ,String Title, String Alcohol, String Price)
     {
         this.Title = Title;
         this.Alcohol = Alcohol;
         this.Price = Price;
         this.APK = apk;
+        this.Id = id;
+        this.Type = type;
     }
 
     public String getTitle()
