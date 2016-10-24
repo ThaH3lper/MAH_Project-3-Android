@@ -124,6 +124,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initSpinner() {
         sortSpinner = (Spinner)findViewById(R.id.spinnerAPK);
+        SpinnerCategories.setContext(this);
         spinnerAdapter = new ArrayAdapter<SpinnerItem>(this, android.R.layout.simple_spinner_item, SpinnerCategories.spinnerItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSpinner.setAdapter(spinnerAdapter);
