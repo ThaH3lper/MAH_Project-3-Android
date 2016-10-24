@@ -5,13 +5,11 @@ import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
 import se.mah.homebois.ethaplanner.Globals;
-import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.views.ListContent.ListViewItems;
 
 /**

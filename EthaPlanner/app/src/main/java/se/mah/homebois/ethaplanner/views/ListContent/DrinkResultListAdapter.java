@@ -36,7 +36,7 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
         ImageView Image;
 
         if (convertView == null || true) { // Test if images are more reliable
-            convertView = (LinearLayout)inflater.inflate(R.layout.listrow, parent, false);
+            convertView = inflater.inflate(R.layout.listrow, parent, false);
         }
 
         Title = (TextView)convertView.findViewById(R.id.twName);

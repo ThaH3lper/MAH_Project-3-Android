@@ -28,8 +28,8 @@ public class MainController {
 
     private final BolagetController bc;
     private final WeatherController wc;
-    private MainActivity activity;
-    private SearchModel searchModel;
+    private final MainActivity      activity;
+    private       SearchModel       searchModel;
 
     private int day;
 
@@ -39,32 +39,28 @@ public class MainController {
         this.wc = wc;
     }
 
-    public void loadResults(SearchModel searchModel)
-    {
+    public void loadResults(SearchModel searchModel) {
         this.searchModel = searchModel;
         long longDate = searchModel.selectedDate;
-
         long now = Calendar.getInstance().getTimeInMillis();
         long delta = longDate - now;
-        int day = (int)(delta / Globals.DAYS_IN_MS);
+        int day = (int) (delta / Globals.DAYS_IN_MS);
 
-        setWeather(day);
+        updateWeather(day);
     }
 
-    public void setDefaultWeather()
-    {
+    public void setDefaultWeather() {
         //activity.setTvDate("01 jan 1999");
         //activity.setTvHigh(String.format(activity.getResources().getString(R.string.weather_high), "0"));
         //activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), ""));
     }
 
-    public void setWeather(int day)
-    {
+    public void updateWeather(int day) {
         this.day = day;
-        wc.updateWeather(day, new WeatherListener());
+        this.wc.updateWeather(day, new WeatherListener());
     }
 
-    public class WeatherListener implements WeatherFetcher.ModelListener {
+    private class WeatherListener implements WeatherFetcher.ModelListener {
         @Override
         public void getWeather(WeatherModel model) {
             Forecast cast = model.getQuery().getResults().getChannel().getItem().getForecast()[day];
@@ -74,7 +70,7 @@ public class MainController {
             activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), cast.getText()));
 
             String[] types = new String[]{"Alkoholfritt"};
-            if(searchModel.sortBy.getId() != 3) {
+            if (searchModel.sortBy.getId() != 3) {
                 types = WeatherToType.getTypes(Integer.parseInt(cast.getCode()));
             }
 
@@ -84,16 +80,15 @@ public class MainController {
             List<ListViewItems> listItem = new ArrayList<ListViewItems>();
             int i = 0;
 
-            for (String type: types) {
+            for (String type : types) {
                 int add = 0;
-                if(over > 0)
-                {
+                if (over > 0) {
                     over--;
                     add = 1;
                 }
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
 
-                for (BolagetArticle ba: list) {
+                for (BolagetArticle ba : list) {
                     listItem.add(new ListViewItems(ba.nr, ba.Varugrupp, String.format("%.02f", ba.Apk) + "ml/sek", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms + ":-"));
                     i++;
                 }
