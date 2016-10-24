@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Etha Planner</string>
+    <string name="app_name">EthaPlanner</string>
     <string name="action_settings">About</string>
 
    <!--Strings for Search-->

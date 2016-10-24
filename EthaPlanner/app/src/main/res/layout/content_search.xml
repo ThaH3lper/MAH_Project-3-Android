@@ -23,15 +23,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@drawable/back"
+
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Search"
+
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:textSize="55dp"
+                android:layout_marginTop="16dp" />
+
 
         </LinearLayout>
 
@@ -44,14 +51,17 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/tvWeather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
-                    android:text="@string/Please_set_a_date"/>
+                    android:text="@string/Please_set_a_date"
+                    android:textSize="18dp" />
 
                 <Button
                     android:id="@+id/setWeatherButton"
@@ -71,14 +81,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
+            android:background="@drawable/back"
             android:paddingTop="10dp">
+
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Please_set_target_APK"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35dp" />
+
 
             <Spinner
                 android:id="@+id/spinnerAPK"
@@ -94,7 +109,9 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:layout_weight="1"
+
             android:gravity="bottom">
+
 
             <Button
                 android:id="@+id/btnSearch"
