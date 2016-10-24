@@ -76,8 +76,11 @@ public class MainController {
             activity.setTvLow(String.format(activity.getResources().getString(R.string.weather_low), cast.getLow()));
             activity.setTvText(String.format(activity.getResources().getString(R.string.weather_type), cast.getText()));
 
-            //Do seach;
-            String[] types = WeatherToType.getTypes(Integer.parseInt(cast.getCode()));
+            String[] types = new String[]{"Alkoholfritt"};
+            if(searchModel.sortBy.getId() != 3) {
+                types = WeatherToType.getTypes(Integer.parseInt(cast.getCode()));
+            }
+
             int amountEach = Globals.AMOUNT_IN_RESULT / types.length;
             int over = amountEach * types.length;
 
@@ -94,7 +97,6 @@ public class MainController {
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
 
                 for (BolagetArticle ba: list) {
-                    Log.d("Item: ", ba.Namn + " | " + ba.Apk + " " + ba.Alkoholhalt);
                     listItem.add(new ListViewItems(ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms, ba.Apk + ""));
                     i++;
                 }
