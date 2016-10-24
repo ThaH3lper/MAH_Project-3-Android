@@ -18,13 +18,12 @@
     <string name="bolaget_license">(All images and products are owned by Systembolaget AB)</string>
     <string name="disclaimer_header">Disclaimer!</string>
     <string name="search">Search</string>
-    
+
     <string name="location_error">Location is not on!</string>
 
     <string name="high_alc_per_crown">Hög alkohol per krona</string>
     <string name="low_alc_per_crown">Låg alkohol per krona</string>
     <string name="alcohol_free">Alkoholfri</string>
     <string name="no_sort_by_apk">Ingen sortering</string>
-
 
 </resources>

@@ -1,9 +1,16 @@
 package se.mah.homebois.ethaplanner.controllers;
 
+import android.os.Debug;
+import android.util.Log;
+
 import java.util.Calendar;
+import java.util.List;
+import java.util.logging.Logger;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
+import se.mah.homebois.ethaplanner.db.BolagetDB;
+import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.models.SearchModel;
 import se.mah.homebois.ethaplanner.models.Weather.Forecast;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
@@ -78,9 +85,16 @@ public class MainController {
                     over--;
                     add = 1;
                 }
-
-                
+                List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
+                showItemsInList(list);
             }
+        }
+    }
+
+    private void showItemsInList(List<BolagetArticle> list)
+    {
+        for (BolagetArticle ba: list) {
+            Log.d("Item: ", ba.Namn + " | " + ba.Apk);
         }
     }
 }
