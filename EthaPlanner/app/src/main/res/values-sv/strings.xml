@@ -13,8 +13,8 @@
     <string name="weather_low">Minsta temperatur: %s°C</string>
 
     <!--Systembolaget strings-->
-    <string name="under_20">Jag är under 20!</string>
-    <string name="over_20">Jag är 20 eller äldre!</string>
+    <string name="under_20">Jag är under 20 år!</string>
+    <string name="over_20">Jag är 20 år eller äldre!</string>
     <string name="disclaimer_text">Denna applkation innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
     <string name="bolaget_license">(Alla bilder och information ägs Systembolaget AB)</string>
     <string name="disclaimer_header">Varning!</string>
@@ -26,5 +26,8 @@
     <string name="alcohol_free">Alkoholfri</string>
     <string name="no_sort_by_apk">Ingen sortering</string>
 
+    <!--Location strings-->
+    <string name="location_error">Positioneringstjänsterna är inte aktiverade</string>
+    <string name="Calender">Calender</string>
 
 </resources>
