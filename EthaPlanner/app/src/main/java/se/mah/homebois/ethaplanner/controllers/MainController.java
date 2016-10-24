@@ -1,25 +1,19 @@
 package se.mah.homebois.ethaplanner.controllers;
 
-import android.os.Debug;
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Logger;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
-import se.mah.homebois.ethaplanner.db.BolagetDB;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.models.SearchModel;
 import se.mah.homebois.ethaplanner.models.Weather.Forecast;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.models.WeatherToType;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
-import se.mah.homebois.ethaplanner.views.ListContent.ListAdapter;
+import se.mah.homebois.ethaplanner.views.ListContent.DrinkResultListAdapter;
 import se.mah.homebois.ethaplanner.views.ListContent.ListViewItems;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 import se.mah.homebois.ethaplanner.views.MainActivity;
 
 /**
@@ -97,10 +91,10 @@ public class MainController {
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
 
                 for (BolagetArticle ba: list) {
-                    listItem.add(new ListViewItems("", "", ba.Apk + "", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms));
+                    listItem.add(new ListViewItems(ba.nr, ba.Varugrupp, String.format("%.02f", ba.Apk) + "ml/sek", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms));
                     i++;
                 }
-                activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
+                activity.getListResult().setAdapter(new DrinkResultListAdapter(activity, listItem));
             }
         }
     }

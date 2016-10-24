@@ -3,7 +3,7 @@ package se.mah.homebois.ethaplanner.views.ListContent;
 /**
  * Created by Tim on 2016-10-23.
  */
-public class    ListViewItems {
+public class ListViewItems {
 
     private String Title;
     private String Alcohol;
@@ -11,9 +11,9 @@ public class    ListViewItems {
     private String APK;
     private String Id;
     private String Type;
+    private String ImageUrl;
 
-    public ListViewItems(String id, String type, String apk ,String Title, String Alcohol, String Price)
-    {
+    public ListViewItems(String id, String type, String apk, String Title, String Alcohol, String Price) {
         this.Title = Title;
         this.Alcohol = Alcohol;
         this.Price = Price;
@@ -22,20 +22,19 @@ public class    ListViewItems {
         this.Type = type;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return Title;
     }
-    public String getAlcohol()
-    {
+
+    public String getAlcohol() {
         return Alcohol;
     }
-    public String getPrice()
-    {
+
+    public String getPrice() {
         return Price;
     }
-    public String getAPK()
-    {
+
+    public String getAPK() {
         return APK;
     }
 
@@ -45,5 +44,13 @@ public class    ListViewItems {
 
     public String getType() {
         return Type;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.ImageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return ImageUrl;
     }
 }

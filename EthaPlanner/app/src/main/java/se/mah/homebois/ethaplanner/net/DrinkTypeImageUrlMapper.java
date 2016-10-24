@@ -24,8 +24,8 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, Stri
     public interface IImageUrlListener {
         void onImageUrlReady(String url);
     }
-    
-    public  DrinkTypeImageUrlMapper(IImageUrlListener listener) {
+
+    public DrinkTypeImageUrlMapper(IImageUrlListener listener) {
         this.listener = listener;
     }
 
@@ -36,20 +36,38 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, Stri
         String url = Globals.BOLAGET_IMAGE_URL;
 
         String type = "sprit";
-        if (article.getType().contains("vin")) {
+        if (article.getType().equals("Rött vin")) {
+            type = "roda-viner";
+        } else if (article.getType().equals("Vitt vin")) {
+            type = "vita-viner";
+        } else if (article.getType().equals("Rosévin")) {
+            type = "roseviner";
+        } else if (article.getType().contains("vin")) {
             type = "vin";
         } else if (article.getType().contains("Öl")) {
             type = "ol";
+        } else if (article.getType().contains("Alkoholfritt")) {
+            type = "alkoholfritt";
         }
 
         String name = article.getTitle()
-                .replace(" ", "-")
                 .replace("å", "a")
                 .replace("ä", "a")
                 .replace("ö", "o")
                 .replace("Å", "A")
                 .replace("Ä", "A")
                 .replace("Ö", "O")
+                .replace("é", "e")
+                .replace("í", "i")
+                .replace("&", "")
+                .replace(":", "")
+                .replace("â", "a")
+                .replace("ë", "e")
+                .replace("ó", "o")
+
+                .replace("'", "")
+                .replace("  ", " ")
+                .replace(" ", "-")
                 + "-" + article.getId();
 
         url = String.format(url, type, name).trim();
@@ -59,7 +77,7 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, Stri
             doc = Jsoup.connect(url).get();
 
             Elements img = doc.select(".carousel-container img");
-            return img.attr("src");
+            return "https:" + img.attr("src");
         } catch (IOException e) {
             e.printStackTrace();
         }

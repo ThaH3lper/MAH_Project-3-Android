@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(search);
     }
 
+    @Override
     protected void onDestroy() {
         bc.dispose();
         super.onDestroy();
-
     }
 }

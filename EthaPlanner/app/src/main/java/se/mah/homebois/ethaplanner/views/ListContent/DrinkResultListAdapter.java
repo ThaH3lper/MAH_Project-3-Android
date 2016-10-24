@@ -15,11 +15,11 @@ import java.util.List;
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.net.BolagetImageDownloader;
 
-public class ListAdapter extends ArrayAdapter<ListViewItems> {
+public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
     private LayoutInflater inflater;
 
 
-    public ListAdapter(Context context, List<ListViewItems> Items) {
+    public DrinkResultListAdapter(Context context, List<ListViewItems> Items) {
         super(context, R.layout.listrow, Items);
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -44,8 +44,6 @@ public class ListAdapter extends ArrayAdapter<ListViewItems> {
         Price = (TextView)convertView.findViewById(R.id.twPrice);
         APK = (TextView)convertView.findViewById(R.id.twPrice);
 
-        Image = (ImageView)convertView.findViewById(R.id.ivDrink);
-
         ListViewItems item = getItem(position);
 
         Title.setText(item.getTitle());
@@ -53,10 +51,11 @@ public class ListAdapter extends ArrayAdapter<ListViewItems> {
         Price.setText(item.getPrice());
         APK.setText(item.getAPK());
 
+        // Load Image
+        Image = (ImageView)convertView.findViewById(R.id.ivDrink);
+        Image.setImageResource(R.drawable.examplelistitem);
         new BolagetImageDownloader(Image, item);
-        //  FIXA BILD ------>  Image.setImageResource(this.getItem(position).getIncomeCategory().getIcon());
 
         return convertView;
-
     }
 }

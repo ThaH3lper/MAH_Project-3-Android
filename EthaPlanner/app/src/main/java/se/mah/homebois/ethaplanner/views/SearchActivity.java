@@ -185,4 +185,10 @@ public class SearchActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+    @Override
+    protected void onDestroy() {
+        bc.dispose();
+        super.onDestroy();
+    }
 }
