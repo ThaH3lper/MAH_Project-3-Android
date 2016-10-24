@@ -16,6 +16,9 @@ import android.widget.Toast;
 import com.google.android.gms.location.LocationServices;
 import com.google.gson.Gson;
 
+import java.util.Calendar;
+
+import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.controllers.MainController;
@@ -52,11 +55,10 @@ public class MainActivity extends AppCompatActivity {
         listResult = (ListView) findViewById(R.id.listResult);
 
         mc.setDefaultWeather();
-        mc.setWeather(0);
 
         if ( getIntent().getExtras() != null) {
             SearchModel searchModel = new Gson().fromJson( getIntent().getExtras().getString("model"), SearchModel.class);
-            SpinnerItem a = searchModel.sortBy;
+            mc.loadResults(searchModel);
         }
     }
 

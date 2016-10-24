@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class WeatherToType {
 
-    Map<Integer, String[]> list;
+    private static Map<Integer, String[]> list;
 
-    public void init()
+    public static void init()
     {
         list.put(0, new String[]{"Aniskryddad sprit", "Tequila och Mezcal"});
         list.put(1, new String[]{"Aniskryddad sprit", "Tequila och Mezcal"});
@@ -63,7 +63,7 @@ public class WeatherToType {
         list.put(3200, new String[]{"Öl"});
     }
 
-    public String[] getTypes(int code)
+    public static String[] getTypes(int code)
     {
         return list.get(code);
     }

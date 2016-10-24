@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -17,6 +18,7 @@ import com.google.android.gms.location.LocationServices;
 
 import java.util.List;
 
+import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
 import se.mah.homebois.ethaplanner.views.MainActivity;
@@ -52,7 +54,8 @@ public class WeatherController implements GoogleApiClient.ConnectionCallbacks, G
         Location loc = getLocation();
         if(loc == null)
         {
-            Log.d("Location: ", "ERRORORORORO");
+            Toast.makeText(activity, activity.getResources().getString(R.string.location_error), Toast.LENGTH_LONG).show();
+            activity.finish();
         }
         else
         {
