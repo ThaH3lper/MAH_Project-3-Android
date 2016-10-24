@@ -3,6 +3,7 @@ package se.mah.homebois.ethaplanner.controllers;
 import android.os.Debug;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,6 +17,8 @@ import se.mah.homebois.ethaplanner.models.Weather.Forecast;
 import se.mah.homebois.ethaplanner.models.Weather.WeatherModel;
 import se.mah.homebois.ethaplanner.models.WeatherToType;
 import se.mah.homebois.ethaplanner.net.WeatherFetcher;
+import se.mah.homebois.ethaplanner.views.ListContent.ListAdapter;
+import se.mah.homebois.ethaplanner.views.ListContent.ListViewItems;
 import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 import se.mah.homebois.ethaplanner.views.MainActivity;
 
@@ -78,6 +81,9 @@ public class MainController {
             int amountEach = Globals.AMOUNT_IN_RESULT / types.length;
             int over = amountEach * types.length;
 
+            List<ListViewItems> listItem = new ArrayList<ListViewItems>();
+            int i = 0;
+
             for (String type: types) {
                 int add = 0;
                 if(over > 0)
@@ -86,15 +92,14 @@ public class MainController {
                     add = 1;
                 }
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
-                showItemsInList(list);
-            }
-        }
-    }
 
-    private void showItemsInList(List<BolagetArticle> list)
-    {
-        for (BolagetArticle ba: list) {
-            Log.d("Item: ", ba.Namn + " | " + ba.Apk + " " + ba.Alkoholhalt);
+                for (BolagetArticle ba: list) {
+                    Log.d("Item: ", ba.Namn + " | " + ba.Apk + " " + ba.Alkoholhalt);
+                    listItem.add(new ListViewItems(ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms, ba.Apk + ""));
+                    i++;
+                }
+                activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
+            }
         }
     }
 }

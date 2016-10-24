@@ -10,17 +10,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 import se.mah.homebois.ethaplanner.R;
 
 public class ListAdapter extends ArrayAdapter<ListViewItems> {
     private LayoutInflater inflater;
-    ListViewItems[] Items;
 
 
-    public ListAdapter(Context context, ListViewItems[] Items) {
+    public ListAdapter(Context context, List<ListViewItems> Items) {
         super(context, R.layout.listrow, Items);
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.Items = Items;
     }
 
     @Override
