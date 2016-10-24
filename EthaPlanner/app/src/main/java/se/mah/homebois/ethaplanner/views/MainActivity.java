@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHigh;
     TextView tvText;
 
+    LinearLayout weatherLayout;
+
     ListView listResult;
 
     private BolagetController bc;
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         tvHigh = (TextView) findViewById(R.id.tvHigh);
         tvText = (TextView) findViewById(R.id.tvText);
         listResult = (ListView) findViewById(R.id.listResult);
+        weatherLayout = (LinearLayout) findViewById(R.id.layoutWeather);
 
         mc.setDefaultWeather();
 
@@ -82,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
     {
         return listResult;
     }
+    public LinearLayout getWeatherLayout(){return weatherLayout;}
 
     private void initControllers() {
         bc = new BolagetController(this);

@@ -1,70 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20px">
 
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_weight="1">
 
-    <FrameLayout
-        android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Tommy12%"
+            android:id="@+id/twName" />
 
-        android:layout_height="175dp">
-        //android:background="@drawable/border"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="12%"
+            android:id="@+id/twAlcohol" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="169kr"
+            android:id="@+id/twPrice" />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:layout_gravity="left"
-                android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="99kr"
+            android:id="@+id/twAPK" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Tommy12%"
-                    android:id="@+id/twName" />
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="12%"
-                    android:id="@+id/twAlcohol" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="169kr"
-                    android:id="@+id/twPrice" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="99kr"
-                    android:id="@+id/twAPK" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:id="@+id/ivDrink"
-                android:src="@drawable/examplelistitem"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-
-    </FrameLayout>
+    <ImageView
+        android:layout_width="0px"
+        android:id="@+id/ivDrink"
+        android:src="@drawable/examplelistitem"
+        android:layout_weight="1"
+        android:layout_height="500px" />
 
 
 </LinearLayout>
