@@ -1,7 +1,6 @@
 package se.mah.homebois.ethaplanner.models;
 
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerCategories;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
+import se.mah.homebois.ethaplanner.views.ListContent.SortItem;
 
 /**
  * Created by Simon on 10/23/2016.
@@ -10,9 +9,9 @@ import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
 public class SearchModel {
     public long selectedDate;
 
-    public SpinnerItem sortBy;
+    public SortItem sortBy;
 
-    public SearchModel(long timeInMillis, SpinnerItem selectedItem) {
+    public SearchModel(long timeInMillis, SortItem selectedItem) {
         this.selectedDate = timeInMillis;
         this.sortBy = selectedItem;
     }

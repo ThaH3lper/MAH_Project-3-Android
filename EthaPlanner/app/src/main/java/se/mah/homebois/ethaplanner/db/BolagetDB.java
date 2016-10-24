@@ -8,7 +8,7 @@ import android.util.Log;
 import java.util.List;
 
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
+import se.mah.homebois.ethaplanner.views.ListContent.SortItem;
 
 /**
  * Created by Simon on 10/23/2016.
@@ -38,7 +38,7 @@ public class BolagetDB extends SQLRepository<BolagetArticle> {
     }
 */
 
-    public List<BolagetArticle> findByType(String type, int count, SpinnerItem sort) {
+    public List<BolagetArticle> findByType(String type, int count, SortItem sort) {
         String where = String.format("Varugrupp LIKE '%%%s%%'", type);
 
         String sortQuery = "RANDOM()";

@@ -1,6 +1,7 @@
 package se.mah.homebois.ethaplanner.net;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -65,6 +66,7 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, Stri
                 .replace("ë", "e")
                 .replace("ó", "o")
 
+                .replace(",", "")
                 .replace("'", "")
                 .replace("  ", " ")
                 .replace(" ", "-")
@@ -79,7 +81,8 @@ public class DrinkTypeImageUrlMapper extends AsyncTask<ListViewItems, Void, Stri
             Elements img = doc.select(".carousel-container img");
             return "https:" + img.attr("src");
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            Log.d("URLMapper", e.getMessage() + url);
         }
 
         return null;

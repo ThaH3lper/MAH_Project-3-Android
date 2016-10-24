@@ -12,7 +12,7 @@ import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.db.BolagetDB;
 import se.mah.homebois.ethaplanner.models.BolagetArticle;
 import se.mah.homebois.ethaplanner.net.BolagetDataDownloader;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
+import se.mah.homebois.ethaplanner.views.ListContent.SortItem;
 
 /**
  * Created by Simon on 10/23/2016.
@@ -53,7 +53,7 @@ public class BolagetController implements BolagetDataDownloader.IBolagetDownload
     }
 
 
-    public List<BolagetArticle> findByType(String type, int count, SpinnerItem sort) {
+    public List<BolagetArticle> findByType(String type, int count, SortItem sort) {
         return bolagetDB.findByType(type, count, sort);
     }
 

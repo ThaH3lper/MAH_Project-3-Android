@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,16 +26,16 @@ import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
 import se.mah.homebois.ethaplanner.controllers.BolagetController;
 import se.mah.homebois.ethaplanner.models.SearchModel;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerCategories;
-import se.mah.homebois.ethaplanner.views.ListContent.SpinnerItem;
+import se.mah.homebois.ethaplanner.views.ListContent.SortCategories;
+import se.mah.homebois.ethaplanner.views.ListContent.SortItem;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private String       timeAsText;
-    private int          time;
-    private ArrayAdapter<SpinnerItem> spinnerAdapter;
-    private Button       setWeatherButton;
-    private Spinner      sortSpinner;
+    private String                 timeAsText;
+    private int                    time;
+    private ArrayAdapter<SortItem> spinnerAdapter;
+    private Button                 setWeatherButton;
+    private Spinner                sortSpinner;
 
     private Calendar selectedDay;
     private BolagetController bc;
@@ -125,8 +124,8 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initSpinner() {
         sortSpinner = (Spinner)findViewById(R.id.spinnerAPK);
-        SpinnerCategories.setContext(this);
-        spinnerAdapter = new ArrayAdapter<SpinnerItem>(this, android.R.layout.simple_spinner_item, SpinnerCategories.spinnerItems);
+        SortCategories.setContext(this);
+        spinnerAdapter = new ArrayAdapter<SortItem>(this, android.R.layout.simple_spinner_item, SortCategories.sortItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSpinner.setAdapter(spinnerAdapter);
     }
@@ -143,7 +142,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void showDateDialog(View v) {
         final View clicked = v;
-        Calendar mCurrentDate = Calendar.getInstance();
+        Calendar mCurrentDate = selectedDay;
         int yyyy, mm, dd;
         yyyy = mCurrentDate.get(Calendar.YEAR);
         mm = mCurrentDate.get(Calendar.MONTH);
@@ -158,9 +157,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         }, yyyy, mm, dd);
 
-        mDatePicker.setTitle("Select date");
+        mDatePicker.setTitle(getString(R.string.select_date));
         mDatePicker.show();
-
     }
 
     private void updateSearchDate() {
@@ -178,8 +176,8 @@ public class SearchActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            String toastname = "EthaPlanner©, by Patrik Nilsson, Simon Bothen, Tim Lindstam";
-            Toast.makeText(this, toastname, Toast.LENGTH_LONG).show();
+            String aboutText = "EthaPlanner©, by Simon Bothén, Tim Lindstam, Patrik Nilsson";
+            Toast.makeText(this, aboutText, Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);

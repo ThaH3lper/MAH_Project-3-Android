@@ -3,11 +3,11 @@ package se.mah.homebois.ethaplanner.views.ListContent;
 /**
  * Created by Tim on 2016-10-23.
  */
-public class SpinnerItem {
+public class SortItem {
     String label;
     int id;
 
-    public SpinnerItem(int id, String label)
+    public SortItem(int id, String label)
     {
         this.label = label;
         this.id = id;

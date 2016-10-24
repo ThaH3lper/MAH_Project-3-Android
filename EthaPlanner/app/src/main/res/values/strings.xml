@@ -23,12 +23,13 @@
     <!--Categories in Spinner-->
     <string name="high_alc_per_crown">High amount of alcohol per SEK</string>
     <string name="low_alc_per_crown">Low amount of alcohol per SEK</string>
-    <string name="alcohol_free">Non-Alcohol</string>
-    <string name="no_sort_by_apk">Don\'t sort</string>
+    <string name="alcohol_free">Non-alcoholic</string>
+    <string name="no_sort_by_apk">Surprise me</string>
 
     <!--Location strings-->
     <string name="location_error">Location-services is not activated!</string>
 
     <!--Misc strings-->
     <string name="Calender">Calendar</string>
+    <string name="select_date">Select date</string>
 </resources>

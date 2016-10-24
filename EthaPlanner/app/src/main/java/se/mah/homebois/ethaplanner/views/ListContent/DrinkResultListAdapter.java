@@ -35,14 +35,14 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
 
         ImageView Image;
 
-        if (convertView == null) {
+        if (convertView == null || true) { // Test if images are more reliable
             convertView = (LinearLayout)inflater.inflate(R.layout.listrow, parent, false);
         }
 
         Title = (TextView)convertView.findViewById(R.id.twName);
         Alcohol = (TextView)convertView.findViewById(R.id.twAlcohol);
         Price = (TextView)convertView.findViewById(R.id.twPrice);
-        APK = (TextView)convertView.findViewById(R.id.twPrice);
+        APK = (TextView)convertView.findViewById(R.id.twAPK);
 
         ListViewItems item = getItem(position);
 
