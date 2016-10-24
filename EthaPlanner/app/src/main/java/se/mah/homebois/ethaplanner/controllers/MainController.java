@@ -97,7 +97,7 @@ public class MainController {
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
 
                 for (BolagetArticle ba: list) {
-                    listItem.add(new ListViewItems(ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms, ba.Apk + ""));
+                    listItem.add(new ListViewItems("", "", ba.Apk + "", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms));
                     i++;
                 }
                 activity.getListResult().setAdapter(new ListAdapter(activity, listItem));
