@@ -1,5 +1,6 @@
 package se.mah.homebois.ethaplanner.controllers;
 
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
@@ -7,6 +8,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import se.mah.homebois.ethaplanner.Globals;
 import se.mah.homebois.ethaplanner.R;
@@ -64,7 +66,7 @@ public class MainController {
             Forecast cast = model.getQuery().getResults().getChannel().getItem().getForecast()[day];
             Location loc = model.getQuery().getResults().getChannel().getLocation();
 
-            activity.setTvLocation(loc.getCountry() + "-" + loc.getRegion().replace(" ", "") + "-" + loc.getCity());
+            activity.setTvLocation(loc.getCountry() + " - " + loc.getCity());
             activity.setTvDate(cast.getDate());
             activity.setTvMaxValue(cast.getHigh());
             activity.setTvMinValue(cast.getLow());
@@ -98,7 +100,8 @@ public class MainController {
 
                 List<BolagetArticle> list = bc.findByType(type, amountEach + add, searchModel.sortBy);
                 for (BolagetArticle ba : list)
-                    listItem.add(new ListViewItems(ba.nr, ba.Varugrupp, String.format("%.02f", ba.Apk) + "ml/sek", ba.Namn, ba.Alkoholhalt, ba.Prisinklmoms + ":-"));
+                    listItem.add(new ListViewItems(ba.nr, ba.Varugrupp, String.format("%.02f", ba.Apk) + "ml/sek", ba.Namn,
+                            ba.Alkoholhalt, ba.Prisinklmoms + ":-", (int)(Double.parseDouble(ba.Volymiml)/10) + "cl"));
             }
             activity.setTvRecommend(activity.getResources().getString(R.string.weather_recommend) + typesStr);
 

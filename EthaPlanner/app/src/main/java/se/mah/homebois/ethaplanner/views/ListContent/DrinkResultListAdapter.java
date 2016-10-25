@@ -33,6 +33,7 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
         TextView Price;
         TextView APK;
         TextView Group;
+        TextView Volym;
 
         ImageView Image;
 
@@ -45,6 +46,7 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
         Price = (TextView)convertView.findViewById(R.id.twPrice);
         APK = (TextView)convertView.findViewById(R.id.twAPK);
         Group = (TextView)convertView.findViewById(R.id.twGroup);
+        Volym = (TextView)convertView.findViewById(R.id.twAmount);
 
         ListViewItems item = getItem(position);
 
@@ -53,6 +55,7 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
         Price.setText(item.getPrice());
         APK.setText(item.getAPK());
         Group.setText(item.getType());
+        Volym.setText(item.getVolym());
 
         // Load Image
         Image = (ImageView)convertView.findViewById(R.id.ivDrink);

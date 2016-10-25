@@ -10,16 +10,22 @@ public class ListViewItems {
     private String Price;
     private String APK;
     private String Id;
+    private String Volym;
     private String Type;
     private String ImageUrl;
 
-    public ListViewItems(String id, String type, String apk, String Title, String Alcohol, String Price) {
+    public ListViewItems(String id, String type, String apk, String Title, String Alcohol, String Price, String Volym) {
         this.Title = Title;
         this.Alcohol = Alcohol;
         this.Price = Price;
         this.APK = apk;
         this.Id = id;
         this.Type = type;
+        this.Volym = Volym;
+    }
+
+    public String getVolym() {
+        return Volym;
     }
 
     public String getTitle() {
