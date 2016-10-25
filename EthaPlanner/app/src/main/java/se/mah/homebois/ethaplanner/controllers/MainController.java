@@ -43,8 +43,11 @@ public class MainController {
     public void loadResults(SearchModel searchModel) {
         this.searchModel = searchModel;
         long longDate = searchModel.selectedDate;
-        long now = Calendar.getInstance().getTimeInMillis();
-        long delta = longDate - now;
+        Calendar cd = Calendar.getInstance();
+        cd.set(Calendar.HOUR_OF_DAY, 0);
+        cd.set(Calendar.MINUTE, 0);
+        long now = cd.getTimeInMillis();
+        long delta = (longDate - now) + 60 * 1000;
         int day = (int) (delta / Globals.DAYS_IN_MS);
 
         updateWeather(day);

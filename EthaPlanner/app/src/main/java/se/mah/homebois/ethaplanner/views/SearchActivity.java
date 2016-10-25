@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
     private Button                 setWeatherButton;
     private Spinner                sortSpinner;
 
-    private Calendar selectedDay;
+    private Calendar          selectedDay;
     private BolagetController bc;
 
     @Override
@@ -50,13 +50,25 @@ public class SearchActivity extends AppCompatActivity {
 
         this.bc = new BolagetController(this);
 
+        selectedDay = Calendar.getInstance();
+        selectedDay.set(Calendar.HOUR_OF_DAY, 0);
+        if (savedInstanceState != null && savedInstanceState.getLong("selectedDay", 0) != 0 ) {
+            selectedDay.setTimeInMillis(savedInstanceState.getLong("selectedDay", 0));
+        }
+
         initSpinner();
         initSearchDate();
         initSearch();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong("selectedDay", selectedDay.getTimeInMillis());
+    }
+
     private void initSearch() {
-        Button btnSearch = (Button)findViewById(R.id.btnSearch);
+        Button btnSearch = (Button) findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +109,7 @@ public class SearchActivity extends AppCompatActivity {
             }).start();
             return;
         }
-        
+
         long now = Calendar.getInstance().getTimeInMillis();
         if (selectedDay.getTimeInMillis() - now > Globals.TEN_DAYS_MS || selectedDay.getTimeInMillis() - now < -Globals.DAYS_IN_MS) {
             Snackbar.make(sortSpinner, "Choose a date within 10 days from now", Snackbar.LENGTH_LONG).show();
@@ -105,7 +117,7 @@ public class SearchActivity extends AppCompatActivity {
         }
 
         Intent result = new Intent(this, MainActivity.class);
-        result.putExtra("model", new Gson().toJson(new SearchModel(selectedDay.getTimeInMillis(), spinnerAdapter.getItem( sortSpinner.getSelectedItemPosition()))));
+        result.putExtra("model", new Gson().toJson(new SearchModel(selectedDay.getTimeInMillis(), spinnerAdapter.getItem(sortSpinner.getSelectedItemPosition()))));
         startActivity(result);
     }
 
@@ -118,12 +130,11 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        selectedDay = Calendar.getInstance();
         updateSearchDate();
     }
 
     private void initSpinner() {
-        sortSpinner = (Spinner)findViewById(R.id.spinnerAPK);
+        sortSpinner = (Spinner) findViewById(R.id.spinnerAPK);
         SortCategories.setContext(this);
         spinnerAdapter = new ArrayAdapter<SortItem>(this, android.R.layout.simple_spinner_item, SortCategories.sortItems);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
