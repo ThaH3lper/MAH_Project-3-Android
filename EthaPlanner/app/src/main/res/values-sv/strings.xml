@@ -15,20 +15,22 @@
     <!--Systembolaget strings-->
     <string name="under_20">Jag är under 20 år!</string>
     <string name="over_20">Jag är 20 år eller äldre!</string>
-    <string name="disclaimer_text">Denna applkation innehåller information om alkoholdrycker. För inköp och besök på denna webbplats måste du vara 20 år eller äldre.</string>
+    <string name="disclaimer_text">Denna applkation innehåller information om alkoholdrycker. För inköp och användning av denna applikation måste du vara 20 år eller äldre.</string>
     <string name="bolaget_license">(Alla bilder och information ägs Systembolaget AB)</string>
-    <string name="disclaimer_header">Varning!</string>
+    <string name="disclaimer_header">20 år eller äldre?</string>
     <string name="search">Sök</string>
 
     <!--Categories in Spinner-->
     <string name="high_alc_per_crown">Hög alkohol per krona</string>
     <string name="low_alc_per_crown">Låg alkohol per krona</string>
     <string name="alcohol_free">Alkoholfri</string>
-    <string name="no_sort_by_apk">Överaska mig</string>
+    <string name="no_sort_by_apk">Överraska mig</string>
 
     <!--Location strings-->
     <string name="location_error">Positioneringstjänsterna är inte aktiverade</string>
+
+    <!--Misc Strings-->
     <string name="Calender">Kalender</string>
-    <string name="select_date">Välj datumd</string>
+    <string name="select_date">Välj datum</string>
 
 </resources>

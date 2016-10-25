@@ -56,7 +56,7 @@ public class DrinkResultListAdapter extends ArrayAdapter<ListViewItems> {
 
         // Load Image
         Image = (ImageView)convertView.findViewById(R.id.ivDrink);
-        Image.setImageResource(R.drawable.examplelistitem);
+        Image.setImageResource(R.drawable.beerglassicon);
         new BolagetImageDownloader(Image, item);
 
         return convertView;

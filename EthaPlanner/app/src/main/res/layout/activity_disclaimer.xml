@@ -19,6 +19,12 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/sb" />
+
         <TextView
             android:text="@string/disclaimer_header"
             android:layout_width="match_parent"
@@ -59,8 +65,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnDecline"
+                android:background="@drawable/roundcorner"
                 android:layout_weight="1"
-                android:layout_marginEnd="20dp"/>
+                android:textColor="#ffffff" />
 
 
 
@@ -69,7 +76,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAccept"
-                android:layout_weight="1"/>
+                android:background="@drawable/roundcorner"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 

@@ -18,7 +18,7 @@
     <!--Systembolaget strings-->
     <string name="under_20">I\'m under 20</string>
     <string name="over_20">I\'m over 20</string>
-    <string name="disclaimer_text">This application contains information about alcoholic beverages.</string>
+    <string name="disclaimer_text">This application contains information about alcoholic beverages. To use this application or buy alcoholic beverages, you have to be 20 years old or older.</string>
     <string name="bolaget_license">(All images and products are owned by Systembolaget AB)</string>
     <string name="disclaimer_header">Disclaimer!</string>
     <string name="search">Search</string>
