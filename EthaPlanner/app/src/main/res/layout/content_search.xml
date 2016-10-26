@@ -33,6 +33,15 @@
                 android:id="@+id/imageView2"
                 android:src="@drawable/logga" />
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -40,11 +49,10 @@
                 android:text="@string/Search"
 
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="35dp"
-                android:layout_marginTop="10dp" />
-
-
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,7 +84,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:background="@color/wallet_bright_foreground_disabled_holo_light"
+                    android:background="@drawable/roundcorner"
+                    android:textColor="#ffffff"
                     android:text="@string/Calender"/>
 
             </LinearLayout>
@@ -107,21 +116,26 @@
                 android:padding="4dp"/>
 
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginBottom="5dp">
+
             <Button
                 android:id="@+id/btnSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:background="@drawable/roundcorner"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/search"
                 android:textColor="#ffffff" />
-
-
-
-
         </LinearLayout>
 
     </LinearLayout>

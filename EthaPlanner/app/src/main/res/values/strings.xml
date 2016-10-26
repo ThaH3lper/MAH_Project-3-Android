@@ -3,7 +3,7 @@
     <string name="action_settings">About</string>
 
    <!--Strings for Search-->
-    <string name="Search">Search</string>
+    <string name="Search">Date</string>
     <string name="Please_set_a_date">Please set a date</string>
     <string name="Please_set_target_APK">Sort by</string>
 

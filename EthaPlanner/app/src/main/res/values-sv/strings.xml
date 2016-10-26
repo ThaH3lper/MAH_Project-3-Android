@@ -3,7 +3,7 @@
     <string name="action_settings">Om</string>
 
     !--Strings for Search-->
-    <string name="Search">Sök</string>
+    <string name="Search">Datum</string>
     <string name="Please_set_a_date">Välj datum</string>
     <string name="Please_set_target_APK">Sortera</string>
 
