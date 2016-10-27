@@ -11,6 +11,9 @@
     <string name="weather_type">Väder: %s!</string>
     <string name="weather_high">max</string>
     <string name="weather_low">min</string>
+    <string name="weather_celsius">°C</string>
+    <string name="weather_temperature">Temperatur</string>
+    <string name="weather_recommend">Vi rekommenderar:</string>
 
     <!--Systembolaget strings-->
     <string name="under_20">Jag är under 20 år!</string>
